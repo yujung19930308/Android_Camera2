@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RadioGroup
+        android:id="@+id/zoom_radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rounded_border_radiogroup"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <RadioButton
+            android:id="@+id/radio_max"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/zoom_btn_status"
+            android:button="@null"
+            android:drawableStart="@drawable/zoom_out_map_24"
+            android:gravity="center"
+            android:onClick="btnEventCLK"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textColor="@color/white"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/radio_4x"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/zoom_btn_status"
+            android:button="@null"
+            android:gravity="center"
+            android:onClick="btnEventCLK"
+            android:padding="5dp"
+            android:text="@string/radio_zoom_4x"
+            android:textColor="@color/white"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/radio_2x"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/zoom_btn_status"
+            android:button="@null"
+            android:gravity="center"
+            android:onClick="btnEventCLK"
+            android:padding="5dp"
+            android:text="@string/radio_zoom_2x"
+            android:textColor="@color/white"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/radio_1x"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/zoom_btn_status"
+            android:button="@null"
+            android:gravity="center"
+            android:onClick="btnEventCLK"
+            android:padding="5dp"
+            android:text="@string/radio_zoom_1x"
+            android:textColor="@color/white"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+    </RadioGroup>
+
+</RelativeLayout>

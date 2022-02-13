@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_gray"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.example.camera2api_mvc.view.AutoFitTextureView
+            android:id="@+id/texture_view_camera2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextureView
+            android:id="@+id/surface_view_decoder"
+            android:layout_width="160dp"
+            android:layout_height="90dp"/>
+
+        <TextView
+            android:id="@+id/txt_record_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_border_recordtime"
+            android:drawablePadding="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/default_record_time"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:drawableStartCompat="@drawable/stop_record_circle_12"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_border_datetime"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ctrl_block_right"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/txt_zoom"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/zoom_btn_status"
+            android:gravity="center"
+            android:onClick="btnEventCLK"
+            android:text="@string/default_zoom"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!--<RadioGroup
+            android:id="@+id/zoom_radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:background="@drawable/rounded_border_radiogroup"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radio_max"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/zoom_btn_status"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:drawableStart="@drawable/zoom_out_map_24"
+                android:textColor="@color/white"
+                android:onClick="btnEventCLK"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radio_4x"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/zoom_btn_status"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/radio_zoom_4x"
+                android:textColor="@color/white"
+                android:onClick="btnEventCLK"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/txt_zoom"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/zoom_value_background"
+                android:textColor="@color/dark_blue"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@string/default_zoom"
+                android:layout_margin="5dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_2x"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/zoom_btn_status"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/radio_zoom_2x"
+                android:textColor="@color/white"
+                android:onClick="btnEventCLK"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <RadioButton
+                android:id="@+id/radio_1x"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/zoom_btn_status"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/radio_zoom_1x"
+                android:textColor="@color/white"
+                android:onClick="btnEventCLK"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </RadioGroup>-->
+
+        <RelativeLayout
+            android:id="@+id/ctrl_block_button"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true">
+
+            <ImageButton
+                android:id="@+id/record_btn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button_rec"
+                android:contentDescription="@string/record_btn"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageButton
+                android:id="@+id/crop_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/take_photo"
+                android:onClick="btnEventCLK"
+                android:contentDescription="@string/crop_btn"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

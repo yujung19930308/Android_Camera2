@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Camera2API_MVC</string>
+    <string name="default_record_time">00：00：00</string>
+    <string name="radio_zoom_1x">1x</string>
+    <string name="radio_zoom_2x">2x</string>
+    <string name="radio_zoom_4x">4x</string>
+    <string name="default_zoom">1x</string>
+    <string name="record_btn">RECORD_BTN</string>
+    <string name="crop_btn">CROP_BTN</string>
+    <string name="zoom_in_btn">ZOOM_IN_BTN</string>
+    <string name="zoom_out_btn">ZOOM_OUT_BTN</string>
+</resources>
