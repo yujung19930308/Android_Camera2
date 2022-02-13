@@ -4,7 +4,7 @@ import android.util.Log
 
 class LogUtil {
     companion object{
-        private const val showLog : Boolean = true
+        private const val showLog : Boolean = false
 
         fun d(tag: String, msg: String) = log("d", tag, msg)
         fun i(tag: String, msg: String) = log("i", tag, msg)
