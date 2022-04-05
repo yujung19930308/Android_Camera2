@@ -6,6 +6,8 @@ An Android Camera2 API Sample Project.
 
 ## 展示圖
 
+![image](https://github.com/yujung19930308/Android_Camera2/blob/main/android_camera2_sample.gif)
+
 * 支援手勢縮放畫面倍率大小
 * 支援畫面截圖儲存至相簿
 
