@@ -24,30 +24,30 @@ class MediaCodecDecoder(width:Int, height:Int, surface: Surface, bit_rate:Int, f
     init {
         try{
             mediaCodec = MediaCodec.createDecoderByType(VIDEO_MIME_TYPE)
+            this.mSurface = surface
+            //Height and width are generally the height and width of the camera.
+            //Because the obtained video frame data is rotated 90 degrees counterclockwise, the width and height need to be reversed here
+            //mediaFormat = MediaFormat.createVideoFormat(VIDEO_MIME_TYPE, height, width);
+            mediaFormat = MediaFormat.createVideoFormat(VIDEO_MIME_TYPE, width, height)
+            //A key describing the average bit rate (in bits per second). The associated value is an integer
+            //參數越大視頻質量越好，但有上限，一般可以使用width*height*(1,3,5)等來控制質量
+            mediaFormat!!.setInteger(MediaFormat.KEY_BIT_RATE, bit_rate)
+            //Describe the key of the frame rate (in frames/second) of the video format. The frame rate is generally within 15 to 30, too small can easily cause video freezes.
+            mediaFormat!!.setInteger(MediaFormat.KEY_FRAME_RATE, fps)
+            //Color format, check the relevant API for details, the color format supported by different devices is not the same
+            mediaFormat!!.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Flexible)
+            //Key frame interval time, in seconds
+            mediaFormat!!.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 1)
+            mediaCodec!!.configure(mediaFormat, mSurface, null, 0)
         }catch (e: IOException){
             e.printStackTrace()
         }
-        this.mSurface = surface
-        //Height and width are generally the height and width of the camera.
-        //Because the obtained video frame data is rotated 90 degrees counterclockwise, the width and height need to be reversed here
-        //mediaFormat = MediaFormat.createVideoFormat(VIDEO_MIME_TYPE, height, width);
-        mediaFormat = MediaFormat.createVideoFormat(VIDEO_MIME_TYPE, width, height)
-        //A key describing the average bit rate (in bits per second). The associated value is an integer
-        //參數越大視頻質量越好，但有上限，一般可以使用width*height*(1,3,5)等來控制質量
-        mediaFormat!!.setInteger(MediaFormat.KEY_BIT_RATE, bit_rate)
-        //Describe the key of the frame rate (in frames/second) of the video format. The frame rate is generally within 15 to 30, too small can easily cause video freezes.
-        mediaFormat!!.setInteger(MediaFormat.KEY_FRAME_RATE, fps)
-        //Color format, check the relevant API for details, the color format supported by different devices is not the same
-        mediaFormat!!.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Flexible)
-        //Key frame interval time, in seconds
-        mediaFormat!!.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 1)
     }
 
     fun startDecoder() {
         LogUtil.d(TAG, "[startDecoder] startDecoder decoder")
         if (mediaCodec != null && mSurface != null) {
             mediaCodec!!.setCallback(mediaCodecCallback)
-            mediaCodec!!.configure(mediaFormat, mSurface, null, 0)
             mediaCodec!!.start()
         } else {
             throw IllegalArgumentException("[startDecoder] startDecoder failed,is the MediaCodec has been init correct?")
